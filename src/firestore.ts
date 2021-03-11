@@ -1184,3 +1184,61 @@ export async function execute(
 export async function disconnect(userId: string) {
   await setHomegraphEnable(userId, false);
 }
+
+export async function getDevice(
+  userId: string,
+  deviceId: string
+): Promise<SmartHomeV1SyncDevices> {
+  const querySnapshot = await db
+    .collection('users')
+    .doc(userId)
+    .collection('devices')
+    .doc(deviceId)
+    .get();
+  const data = querySnapshot.data();
+  if (data) {
+    const device: SmartHomeV1SyncDevices = {
+      id: data.id,
+      type: data.type,
+      traits: data.traits,
+      name: {
+        defaultNames: data.defaultNames,
+        name: data.name,
+        nicknames: data.nicknames,
+      },
+      deviceInfo: {
+        manufacturer: data.manufacturer,
+        model: data.model,
+        hwVersion: data.hwVersion,
+        swVersion: data.swVersion,
+      },
+      willReportState: data.willReportState,
+      attributes: data.attributes,
+      otherDeviceIds: data.otherDeviceIds,
+      customData: data.customData,
+    };
+
+    return device;
+  }
+  const device = {
+    id: '',
+    type: '',
+    traits: [],
+    name: {
+      defaultNames: [],
+      name: '',
+      nicknames: [],
+    },
+    deviceInfo: {
+      manufacturer: '',
+      model: '',
+      hwVersion: '',
+      swVersion: '',
+    },
+    willReportState: false,
+    // attributes: '',
+    otherDeviceIds: [],
+    // customData: ''
+  };
+  return device;
+}

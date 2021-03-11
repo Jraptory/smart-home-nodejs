@@ -1,0 +1,27 @@
+[debug] [2021-03-09T10:47:13.842Z] ----------------------------------------------------------------------
+[debug] [2021-03-09T10:47:13.846Z] Command:       C:\Program Files\nodejs\node.exe C:\CODE\smart-home-nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-03-09T10:47:13.846Z] CLI Version:   9.1.2
+[debug] [2021-03-09T10:47:13.847Z] Platform:      win32
+[debug] [2021-03-09T10:47:13.847Z] Node Version:  v12.18.3
+[debug] [2021-03-09T10:47:13.849Z] Time:          Tue Mar 09 2021 17:47:13 GMT+0700 (Western Indonesia Time)
+[debug] [2021-03-09T10:47:13.849Z] ----------------------------------------------------------------------
+[debug] [2021-03-09T10:47:13.849Z] 
+[debug] [2021-03-09T10:47:13.861Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-09T10:47:13.862Z] > authorizing via signed-in user
+[debug] [2021-03-09T10:47:13.862Z] [iam] checking project smrbs-mrt for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-03-09T10:47:13.867Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/smrbs-mrt:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-03-09T10:47:15.099Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 10:47:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1038","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T10:47:15.103Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/smrbs-mrt/serviceAccounts/smrbs-mrt@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-03-09T10:47:16.459Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 10:47:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T10:47:16.461Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/smrbs-mrt  
+ 
+[debug] [2021-03-09T10:47:17.076Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 10:47:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] !  functions: package.json indicates an outdated version of firebase-functions.
+Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[info] 
+[info] === Deploying to 'smrbs-mrt'...
+[info] 
+[info] i  deploying functions, hosting 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint

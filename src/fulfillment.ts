@@ -17,7 +17,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-
+import axios, {AxiosRequestConfig} from 'axios';
 import {
   smarthome,
   SmartHomeV1ExecuteResponseCommands,
@@ -120,6 +120,33 @@ app.onExecute(async (body, headers) => {
   await asyncForEach(devices, async (device: {id: string}) => {
     try {
       const states = await firestore.execute(userId, device.id, execution[0]);
+
+      const deviceData = await firestore.getDevice(userId, device.id);
+      functions.logger.debug('getDevice:', deviceData);
+      let status = 0;
+      if (execution[0].params?.on) {
+        status = 1;
+      }
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+      const axiosData: AxiosRequestConfig = {
+        method: 'post',
+        // url: 'https://api.prototype.prieds.com/dev/core/sales-order/create-direct-sales-order-website',
+        url:
+          'https://smartoffice.jakartamrt.co.id:3000/update-device-status-google',
+          // 'https://ofis-mrt.prieds.com:3001/update-device-status-google',
+        data: {
+          device: deviceData.name.name,
+          status: status,
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      functions.logger.debug('triggerMRTAPI:', axiosData);
+
+      const responseAPi = axios(axiosData);
+
       commands.push({
         ids: [device.id],
         status: 'SUCCESS',
