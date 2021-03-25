@@ -132,8 +132,9 @@ app.onExecute(async (body, headers) => {
         method: 'post',
         // url: 'https://api.prototype.prieds.com/dev/core/sales-order/create-direct-sales-order-website',
         url:
-          'https://smartoffice.jakartamrt.co.id:3000/update-device-status-google',
-          // 'https://ofis-mrt.prieds.com:3001/update-device-status-google',
+          // 'https://smartoffice.jakartamrt.co.id:3000/update-device-status-google',
+          'http://smartoffice.jakartamrt.co.id/api/update-device-status-google',
+        // 'https://ofis-mrt.prieds.com:3001/update-device-status-google',
         data: {
           device: deviceData.name.name,
           status: status,
